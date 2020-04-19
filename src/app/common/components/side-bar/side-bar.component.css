@@ -1,0 +1,32 @@
+.sidenav {
+    text-align: center;
+    height: 100%;
+    width: 450px;
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #f05837;
+    color: #fff;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  /* Fake image, just for this example */
+  .myPicture {
+    background-color: #fff;
+    width: 50%;
+    padding: 20px;
+    height:200px;
+    border-radius: 100%;
+  }
+  
+  /* Responsive layout - when the screen is less than 768px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 768px) {
+    .sidenav {
+        width: 100%;
+    }
+    .myPicture {
+        border-radius: 50%;
+    }
+  }

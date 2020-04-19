@@ -1,0 +1,28 @@
+
+.write-post {
+    width: 550px;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.set-button {
+    width: 100px;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .post-actions {
+        flex-direction: column;
+    }
+    .write-post {
+        width: 350px;
+    }
+    .set-button {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+    <a class="navbar-brand" href="#"><img class="brand-logo" src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" /></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="nav navbar-nav ml-auto">
+
+            <li class="nav-item" *ngFor="let menu of menuItems">
+                <a 
+                    class="nav-link" 
+                    href="#"
+                    *ngIf="menu.isLoggedIn"
+                    [routerLink]="menu.route"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}"
+                >
+                    {{ menu.value }}
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</nav>

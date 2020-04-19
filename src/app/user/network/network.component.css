@@ -1,0 +1,35 @@
+
+.group-data {
+    display: flex;
+    border: 1px solid #000;
+    height: 100px;
+    padding: 10px;
+}
+
+.group-data-number {
+    flex: 0.2;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+.group-data-name {
+    flex: 1;
+}
+
+.group-data-decision {
+    flex: 0.2;
+    border: 1px solid #000;
+}
+
+@media screen and (max-width: 768px) {
+    .group-data-number  {
+        display: none;
+    }
+    .group-data-name {
+        flex: 1.5;
+    }
+    .group-data-decision {
+        border: 0;
+        flex: 1.5;
+    }
+}

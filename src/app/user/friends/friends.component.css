@@ -1,0 +1,26 @@
+
+.group-data {
+    display: flex;
+    border: 1px solid #000;
+    height: 100px;
+    padding: 10px;
+}
+
+.group-data-number {
+    flex: 0.2;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+.group-data-name {
+    flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .group-data-number  {
+        border: 0;
+    }
+    .group-data-name {
+        flex: 1.5;
+    }
+}
