@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
+import { User } from '../../../_models/user';
+import { AuthenticationService } from '../../../_services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,57 +11,69 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   public menuItems = [];
+  currentUser: User;
+  isAuthenticated;
 
-  constructor() { }
+  constructor(private router: Router, private authenticationService: AuthenticationService ){
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    this.isAuthenticated = this.currentUser ? true : false;
+  }
 
   ngOnInit(): void {
 
-    const isAuthenticated = true;
+    
 
     this.menuItems = [
       {
         key: 'register',
         value: 'Register',
-        isLoggedIn: !isAuthenticated,
-        route: '/user/registration'
+        isLoggedIn: !this.isAuthenticated,
+        route: '/register'
       },
       {
         key: 'login',
         value: 'Login',
-        isLoggedIn: !isAuthenticated,
+        isLoggedIn: !this.isAuthenticated,
         route: '/login'
       },
       {
         key: 'home',
         value: 'Home',
-        isLoggedIn: isAuthenticated,
-        route: '/home'
+        isLoggedIn: this.isAuthenticated,
+        route: '/'
       },
       {
         key: 'network',
         value: 'Network',
-        isLoggedIn: isAuthenticated,
+        isLoggedIn: this.isAuthenticated,
         route: '/network'
       },
       {
         key: 'friends',
         value: 'Friends',
-        isLoggedIn: isAuthenticated,
+        isLoggedIn: this.isAuthenticated,
         route: '/friends'
       },
       {
         key: 'settings',
         value: 'Settings',
-        isLoggedIn: isAuthenticated,
+        isLoggedIn: this.isAuthenticated,
         route: '/settings'
       },
       {
         key: 'logout',
         value: 'Logout',
-        isLoggedIn: isAuthenticated,
-        route: '/login'
+        isLoggedIn: this.isAuthenticated,
+        route: '/logout'
       }
     ];
+  }
+
+  onTabClick(menu) {
+    if(menu.route === "/logout") {
+      this.authenticationService.logout();
+      this.router.navigate(['/login']);
+    }
   }
 
 }

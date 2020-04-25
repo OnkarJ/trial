@@ -1,19 +1,28 @@
 <div class="container login-container">
     <div class="row">
         <div class="col-md-6 login-form-2">
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="login-logo">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
             </div>
             <h3>Please Login</h3>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email *" value="" />
+                <input type="text" formControlName="username" placeholder="Username *" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                <div *ngIf="submitted && f.username.errors">
+                    <div *ngIf="f.username.errors.required">Username is required</div>
+                </div>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                <input type="password" formControlName="password" placeholder="Password *" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
             </div>
             <div class="form-group">
-                <input type="submit" class="btnSubmit" value="Login" />
+                <button [disabled]="loading" class="btnSubmit">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Login
+                </button>
             </div>
             <div class="form-group">
                 <a class="btnForgetPwd" value="Login" (click)="onForgetPasswordClick()">Forget Password?</a>

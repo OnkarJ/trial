@@ -12,10 +12,10 @@
 
             <li class="nav-item" *ngFor="let menu of menuItems">
                 <a 
-                    class="nav-link" 
-                    href="#"
+                    class="nav-link"
                     *ngIf="menu.isLoggedIn"
                     [routerLink]="menu.route"
+                    (click)="onTabClick(menu)"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{exact: true}"
                 >
@@ -26,3 +26,10 @@
     </div>
 
 </nav>
+
+
+<!-- *ngIf="menu.isLoggedIn"
+[routerLink]="menu.route"
+(click)="onTabClick(menu)"
+routerLinkActive="active"
+[routerLinkActiveOptions]="{exact: true}" -->

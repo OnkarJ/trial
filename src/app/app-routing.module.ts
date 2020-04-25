@@ -10,10 +10,16 @@ import { HomeComponent } from './user/home/home.component';
 import { NetworkComponent } from './user/network/network.component';
 import { FriendsComponent } from './user/friends/friends.component';
 import { SettingsComponent } from './user/settings/settings.component';
+import { AuthGuard } from './_helpers/auth.guard'
 
 const routes: Routes = [
+    { 
+        path: '', 
+        component: HomeComponent, 
+        canActivate: [AuthGuard] 
+    },
     {
-        path:'user/registration',
+        path:'register',
         component: UserRegistrationComponent
     },
     {   path:'login',
@@ -29,16 +35,19 @@ const routes: Routes = [
         component: HomeComponent
     },
     {   path:'network',
-        component: NetworkComponent
+        component: NetworkComponent,
+        canActivate: [AuthGuard]
     },
     {   path:'friends',
-        component: FriendsComponent
+        component: FriendsComponent,
+        canActivate: [AuthGuard]
     },
     {   path:'settings',
-        component: SettingsComponent
+        component: SettingsComponent,
+        canActivate: [AuthGuard]
     },
     {   path:'**',
-        component: ErrorRouteComponent
+        redirectTo: ''
     }
 ];
 
