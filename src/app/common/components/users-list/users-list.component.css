@@ -1,0 +1,10 @@
+
+.usersList {
+    border: 1px solid;
+    padding: 20px;
+}
+
+.usersList:hover {
+    background-color: #f05837;
+    cursor: pointer;
+}

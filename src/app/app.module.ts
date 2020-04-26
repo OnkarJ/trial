@@ -20,7 +20,9 @@ import { SettingsComponent } from './user/settings/settings.component';
 import { fakeBackendProvider } from './_helpers/fake-backend';
 import { AlertComponent } from './alert/alert.component'
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
-import { ErrorInterceptor } from './_helpers/error.interceptor'
+import { ErrorInterceptor } from './_helpers/error.interceptor';
+import { FormsModule } from '@angular/forms';
+import { UsersListComponent } from './common/components/users-list/users-list.component';
 
 
 @NgModule({
@@ -37,13 +39,15 @@ import { ErrorInterceptor } from './_helpers/error.interceptor'
     NetworkComponent,
     FriendsComponent,
     SettingsComponent,
-    AlertComponent
+    AlertComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

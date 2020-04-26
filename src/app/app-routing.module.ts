@@ -11,6 +11,7 @@ import { NetworkComponent } from './user/network/network.component';
 import { FriendsComponent } from './user/friends/friends.component';
 import { SettingsComponent } from './user/settings/settings.component';
 import { AuthGuard } from './_helpers/auth.guard'
+import { UsersListComponent } from './common/components/users-list/users-list.component';
 
 const routes: Routes = [
     { 
@@ -44,6 +45,10 @@ const routes: Routes = [
     },
     {   path:'settings',
         component: SettingsComponent,
+        canActivate: [AuthGuard]
+    },
+    {   path:'users-list',
+        component: UsersListComponent,
         canActivate: [AuthGuard]
     },
     {   path:'**',

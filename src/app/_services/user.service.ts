@@ -15,4 +15,7 @@ export class UserService {
     delete(id: number) {
         return this.http.delete(`${environment.apiUrl}/users/${id}`);
     }
+    posts(user: Object) {
+        return this.http.post(`${environment.apiUrl}/posts/createpost`, user); 
+    }
 }

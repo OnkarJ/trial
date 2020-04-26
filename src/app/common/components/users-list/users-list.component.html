@@ -1,0 +1,13 @@
+
+
+<div class="body-panel">
+    <div class="body-panel-left">
+        <app-side-bar></app-side-bar>
+    </div>
+    <div class="body-panel-right display-properly">
+        <h4>List of registered users: </h4>
+        <div *ngFor="let user of users" class="usersList">
+            {{user.firstName}} {{user.lastName}}
+        </div>
+    </div>
+</div>

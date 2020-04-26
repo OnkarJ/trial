@@ -6,8 +6,8 @@
     </div>
     <div class="body-panel-right display-properly">
         <span class="post-actions">
-            <textarea class="write-post form-control form-control-lg" type="text" placeholder="write your thoughts here..." ></textarea>
-            <input type="button" value="Post" class="primary-button set-button" />
+            <textarea class="write-post form-control form-control-lg" [(ngModel)]="thoughts" type="text" placeholder="write your thoughts here..." ></textarea>
+            <input type="button" value="Post" (click)="onPostClick()" class="primary-button set-button" />
         </span>
 
         <div class="post">
